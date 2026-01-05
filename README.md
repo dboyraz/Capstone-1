@@ -4,7 +4,7 @@ This project predicts whether a person's income is >50K or <=50K using the [Adul
 
 ## Usage context
 
-Use the trained model to score a single record or batch of records via the FastAPI `/predict` endpoint. A sample request payload is provided in `payload.json` and the example curl commands below show how to call the service locally.
+Use the trained model to score a single record or batch of records via the FastAPI `/predict` endpoint. A sample request payload is provided in `payload.json` (in the root directory) and the example curl commands below show how to call the service locally.
 
 
 
@@ -14,19 +14,19 @@ Use the trained model to score a single record or batch of records via the FastA
 ```
 docker build -t adult-income-api .
 ```
-2. Run the container
+2. Run the container:
 ```
 docker run --rm -p 8000:8000 adult-income-api
 ```
 
-3. Now you can test the API using the following
+3. Now you can test the API using the following curl command:
 
 *Windows PowerShell*
 ```
 curl.exe -s -X POST http://127.0.0.1:8000/predict `
   -H "Content-Type: application/json" `
   --data-binary "@payload.json" 
-  ```
+```
 
 
 
@@ -37,7 +37,7 @@ curl -s -X POST "http://127.0.0.1:8000/predict" \
   --data-binary "@payload.json"
 ```
 
-
+Alternatively you can use the built-in [Swagger](http://localhost:8000/docs#/default/predict_endpoint_predict_post) to test the API, after running the container successfully.
 
 
 
